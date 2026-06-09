@@ -7,8 +7,10 @@
     <button onclick="window.location.href = 'choice.html';">Play</button>
     <script>
         window.onload = function() {
-            localStorage.removeItem('chosenword');
-            location.reload();
+            if (localStorage.getItem('chosenword')) {
+              localStorage.removeItem('chosenword');
+              location.reload();
+            }
         }
     </script>
    </body>
