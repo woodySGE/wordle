@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <body>
+<body>
 
-    <style>
-    body {
-        text-align: center;
-    }
-    </style>
+<style>
+body {
+    text-align: center;
+}
+</style>
 
-    <h1>Word Insert</h1>
+<h1>Word Insert</h1>
 
-    <script>
-    function storeWord(event) {
-        event.preventDefault();
+<script>
+function storeWord(event) {
+    event.preventDefault();
 
-        var cword = document.getElementById('chosenword').value;
-        sessionStorage.setItem('chosenword', cword);
+    var cword = document.getElementById('chosenword').value;
+    sessionStorage.setItem('chosenword', cword);
 
-        window.location.href = "/wordle/game.html";
-    }
-    </script>
+    window.location.href = "/wordle/game.html";
+}
+</script>
 
-        <form onsubmit="storeWord(event)">
-            <input type="text" id="chosenword" name="chosenword"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+<form onsubmit="storeWord(event)">
+    <input type="text" id="chosenword" name="chosenword"><br><br>
+    <input type="submit" value="Submit">
+</form>
 
-    </body>
+</body>
 </html>
