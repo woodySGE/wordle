@@ -3,20 +3,15 @@
     <body align = "center">
     <h1>Word Insert</h1>
     <script>
-        function makeCookie() {
-            //word = document.cookie(value)
-            var input = document.getElementsById("chosenword")[0];
-
-            if (input) {
-                let thing = document.getElementsById("test")[0];
-                thing = input
-                document.cookie(input)
-            }
+        function storeWord() {
+            var cword = document.getElementById('chosenword').value;
+            
+            localStorage.setItem('chosenword', cword);
         }
     </script>
     <form action="/wordle/game.html">
         <input type="text" id="chosenword" name="chosenword"><br><br>
-        <input type="submit" value="Submit" id="submitbtn" onclick="makeCookie">
+        <input type="submit" value="Submit" id="submitbtn" onclick="storeWord">
     </form> 
     </body>
 </html>

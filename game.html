@@ -1,5 +1,24 @@
 <html>
     <body align = "center">
         <p id="test">this is the game</p>
+        
+        <script>
+        window.onload = function() {
+            var cword = localStorage.getItem('chosenword');
+            
+            if (cword) {
+                document.getElementById('test').innerHTML = 
+                '<p> The word is: ' + name + '</p>';
+            } else {
+                document.getElementById('test').innerHTML = 
+                '<p> The word is: NO DATA FOUND</p>';
+            }
+        };
+        
+        function clearData() {
+            localStorage.removeItem('chosenword');
+            location.reload();
+        }
+    </script>
     </body>
 </html>
