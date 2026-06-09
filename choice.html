@@ -2,10 +2,19 @@
 <html>
     <body align = "center">
     <h1>Word Insert</h1>
+    <script>
+        function makeCookie() {
+            //word = document.cookie(value)
+            var input = document.getElementsById("chosenword")[0];
+
+            if (input) {
+                document.cookie(input)
+            }
+        }
+    </script>
     <form action="/wordle/game.html">
         <input type="text" id="chosenword" name="chosenword"><br><br>
-        <input type="submit" value="Submit" id="submitbtn">
+        <input type="submit" value="Submit" id="submitbtn" onclick="makeCookie">
     </form> 
-    <script src="js/cookie.js"></script>
     </body>
 </html>
