@@ -1,6 +1,6 @@
 .box {
-  width: 100px;
-  height: 100px;
-  background-color: lightblue;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
 }
