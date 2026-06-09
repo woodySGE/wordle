@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html>
-<body>
-
 <style>
-body {
+.center-form {
+    width: fit-content;
+    margin: 0 auto;
     text-align: center;
 }
 </style>
 
-<h1>Word Insert</h1>
+form onsubmit="storeWord(event)" class="center-form">
+    <input type="text" id="chosenword" name="chosenword"><br><br>
+    <input type="submit" value="Submit">
+</form>
 
 <script>
 function storeWord(event) {
@@ -20,11 +21,3 @@ function storeWord(event) {
     window.location.href = "/wordle/game.html";
 }
 </script>
-
-<form onsubmit="storeWord(event)">
-    <input type="text" id="chosenword" name="chosenword"><br><br>
-    <input type="submit" value="Submit">
-</form>
-
-</body>
-</html>
