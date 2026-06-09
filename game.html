@@ -6,6 +6,7 @@
         window.onload = function() {
             var cword = sessionStorage.getItem('chosenword');
             var cword_yah = JSON.parse(cword)
+            alert(cword_yah)
             if (cword_yah) {
                 document.getElementById('test').innerHTML = 
                 '<p> The word is: ' + cword_yah + '</p>';
