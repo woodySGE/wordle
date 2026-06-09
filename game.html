@@ -5,6 +5,7 @@
         <script>
         window.onload = function() {
             var cword = sessionStorage.getItem('chosenword');
+            alert(cword)
             if (cword) {
                 document.getElementById('test').innerHTML = 
                 '<p> The word is: ' + cword_yah + '</p>';
