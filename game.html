@@ -1,4 +1,7 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="css/boxs.css">
+    </head>
     <body align = "center">
         <p id="test">this is the game</p>
         
@@ -6,14 +9,10 @@
         window.onload = function() {
             var cword = sessionStorage.getItem('chosenword');
             alert(cword)
-            if (cword) {
-                document.getElementById('test').innerHTML = 
-                '<p> The word is: ' + cword + '</p>';
-            } else {
-                document.getElementById('test').innerHTML = 
-                '<p> The word is: NO FAST FREDBEAR FOUND</p>';
-            }
         };
-    </script>
+        </script>
+
+        <div class="box"></div>
+        
     </body>
 </html>

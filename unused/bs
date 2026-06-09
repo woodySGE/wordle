@@ -1,0 +1,7 @@
+            if (cword) {
+                document.getElementById('test').innerHTML = 
+                '<p> The word is: ' + cword + '</p>';
+            } else {
+                document.getElementById('test').innerHTML = 
+                '<p> The word is: NO FAST FREDBEAR FOUND</p>';
+            }
