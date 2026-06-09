@@ -5,5 +5,11 @@
     <h1>Wordle</h1>    
     <p>Choose the word edition.</p>
     <button onclick="window.location.href = 'choice.html';">Play</button>
+    <script>
+        window.onload = function() {
+            localStorage.removeItem('chosenword');
+            location.reload();
+        }
+    </script>
    </body>
 </html>
