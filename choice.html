@@ -1,15 +1,30 @@
-<form onsubmit="storeWord(event)">
-    <input type="text" id="chosenword" name="chosenword"><br><br>
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+    <body>
 
-<script>
-function storeWord(event) {
-    event.preventDefault();
+    <style>
+    body {
+        text-align: center;
+    }
+    </style>
 
-    var cword = document.getElementById('chosenword').value;
-    sessionStorage.setItem('chosenword', cword);
+    <h1>Word Insert</h1>
 
-    window.location.href = "/wordle/game.html";
-}
-</script>
+    <script>
+    function storeWord(event) {
+        event.preventDefault();
+
+        var cword = document.getElementById('chosenword').value;
+        sessionStorage.setItem('chosenword', cword);
+
+        window.location.href = "/wordle/game.html";
+    }
+    </script>
+
+        <form onsubmit="storeWord(event)">
+            <input type="text" id="chosenword" name="chosenword"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+    </body>
+</html>
