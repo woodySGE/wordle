@@ -6,7 +6,7 @@
         function storeWord() {
             var cword = document.getElementById('chosenword').value;
             
-            localStorage.setItem('chosenword', cword);
+            sessionStorage.setItem('chosenword', cword);
         }
     </script>
     <form action="/wordle/game.html">

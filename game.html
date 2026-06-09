@@ -4,14 +4,14 @@
         
         <script>
         window.onload = function() {
-            var cword = localStorage.getItem('chosenword');
-            
-            if (cword) {
+            var cword = sessionStorage.getItem('chosenword');
+            var cword_yah = JSON.parse(cword)
+            if (cword_yah) {
                 document.getElementById('test').innerHTML = 
-                '<p> The word is: ' + name + '</p>';
+                '<p> The word is: ' + cword_yah + '</p>';
             } else {
                 document.getElementById('test').innerHTML = 
-                '<p> The word is: NO DATA FOUND</p>';
+                '<p> The word is: NO FAST FREDBEAR FOUND</p>';
             }
         };
     </script>
