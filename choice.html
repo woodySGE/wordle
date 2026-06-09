@@ -4,14 +4,14 @@
     <h1>Word Insert</h1>
     <script>
         function storeWord() {
-            var cword = document.getElementsById('chosenword').value;
+            var cword = document.getElementById('chosenword').value;
             alert(cword)
             sessionStorage.setItem('chosenword', cword);
         }
     </script>
     <form action="/wordle/game.html">
         <input type="text" id="chosenword" name="chosenword"><br><br>
-        <input type="submit" value="Submit" id="submitbtn" onclick="storeWord">
+        <input type="submit" value="Submit" id="submitbtn" onclick="storeWord()">
     </form> 
     </body>
 </html>
