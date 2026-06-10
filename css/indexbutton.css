@@ -1,0 +1,12 @@
+.indexbutton {
+  background-color: rgb(0, 0, 0);
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 64px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+}
