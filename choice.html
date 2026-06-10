@@ -1,10 +1,14 @@
 <html>
-    <body>
-        <head>
+    <head>
+            <link rel="stylesheet" href="css/center.css">
             <link rel="stylesheet" href="css/body.css">
+            <link rel="stylesheet" href="css/indexbutton.css">
+            <link rel="stylesheet" href="css/chooseword.css">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
-<h1 style="font-size:3vw" class="center-form">Word Insert</h1>
+    </head>
+    <body class="center">
+
+<h1 style="font-size:3vw; margin-top: -25px"; class="center-form">Word Insert</h1><br>
 
 
 <style>
@@ -16,8 +20,8 @@
 </style>
 
 <form onsubmit="storeWord(event)" class="center-form">
-    <input style="font-size:1vw" type="text" id="chosenword" name="chosenword"><br><br>
-    <input style="font-size:1vw" type="submit" value="Submit">
+    <input class="chooseword" style="font-size:1vw" type="text" id="chosenword" name="chosenword"><br><br>
+    <input class="indexbutton"style="font-size:vw" type="submit" value="Submit">
 </form>
 
 <script>
@@ -27,7 +31,7 @@ function storeWord(event) {
     var cword = document.getElementById('chosenword').value;
     sessionStorage.setItem('chosenword', cword);
 
-    window.location.href = "/wordle/game.html";
+    window.location.href = "wordle/game.html";
 }
 </script>
 </body>
