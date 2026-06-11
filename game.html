@@ -17,9 +17,9 @@
     </style>
     <body>
         
-        <script>
-            var Row = 1;
-            var Column = 1;
+    <script>
+        var Row = 1;
+        var Column = 1;
         window.onload = function() {
             let cword = sessionStorage.getItem('chosenword');
             if (cword == null) {
@@ -29,23 +29,30 @@
         };
 
         document.addEventListener('keydown', function(event) {
-            console.log(Row)
-            console.log(Column)
-            console.log("_____")
             if (event.key.match(/^[A-Za-z]$/)) {
-                document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
-                console.log(event.key)
+                if (Column != 5) {
+                    document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                } else {
+                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length == 1) {
+                        null
+                    } else {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    }
+                }
+
                 if (Column != 5) {
                     console.log("added")
                     Column += 1
-                } 
-                
-
-
-                
+                    console.log(Row)
+                    console.log(Column)
+                    console.log("_____")
+                }
             }
 
             if (event.keyCode == 8) {
+                console.log(Row)
+                console.log(Column)
+                console.log("_____")
                 if (Column != 1) {
                     document.getElementById(`R${Row}C${Column}`).innerHTML = ``
                     Column--;
@@ -54,8 +61,10 @@
                 }
             }
 
-
             if (event.key === "Enter") {
+                console.log(Row)
+                console.log(Column)
+                console.log("_____")                
                 if (Column == 5) {
                     if (Row != 6) {
                         console.log("Done")
@@ -65,8 +74,9 @@
                 }
             }
         })
-        </script>
-        <br><br><br><br><br><br><br><br><br>
+
+    </script>
+        <br><br><br><br><br><br><br><br>
         <div class="boxloader">
             <div class="box" id="R1C1"></div>
             <div class="box" id="R1C2"></div>
