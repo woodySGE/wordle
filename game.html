@@ -5,20 +5,40 @@
         <link rel="stylesheet" href="css/body.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <style>
+     @font-face {
+        font-family: NS;
+        src: url(fonts/NS.ttf);
+    }
+
+    div {
+        font-family: NS;
+    }
+    </style>
     <body>
         
         <script>
         window.onload = function() {
             var cword = sessionStorage.getItem('chosenword');
+            if (cword == null) {
+                alert("WORD MISSING PLEASE RELOAD")
+                window.location.href = "choice.html";
+            }
         };
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key.match(/^[A-Za-z]$/)) {
+               alert(`Key pressed: ${event.key}`)
+            }
+        })
         </script>
         <br><br><br><br><br><br><br><br><br>
         <div class="boxloader">
-            <div class="box">C</div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box">S</div>
+            <div class="box">T</div>
+            <div class="box">E</div>
+            <div class="box">A</div>
+            <div class="box">L</div>
         </div>
 
         <div class="boxloader">
