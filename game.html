@@ -79,7 +79,7 @@
                 console.log(word)
                 console.log(cword)
                 if (word == cword) {
-                    document.querySelectorAll("#R1 .box").forEach(box => {
+                    document.querySelectorAll(`#R${Row} .box`).forEach(box => {
                         box.classList.add("correctletter")
                     });
                 }
