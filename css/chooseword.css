@@ -1,6 +1,6 @@
 .chooseword {
     width: 300px;
     height: 25px;
-    border-radius: 25px;
-    align-items:  center;
+    border-radius: 25px black;
+    align-items: center;
 }
