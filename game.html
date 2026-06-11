@@ -29,15 +29,40 @@
         };
 
         document.addEventListener('keydown', function(event) {
+            console.log(Row)
+            console.log(Column)
+            console.log("_____")
             if (event.key.match(/^[A-Za-z]$/)) {
                 document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
-                Column += 1
-            }
-            if (event.keyCode == 8) {
-                if (Column != 1)
-                Column = Column - 1
-                document.getElementById(`R${Row}C${Column}`).innerHTML = ``;
+                console.log(event.key)
+                if (Column != 5) {
+                    console.log("added")
+                    Column += 1
+                } 
                 
+
+
+                
+            }
+
+            if (event.keyCode == 8) {
+                if (Column != 1) {
+                    document.getElementById(`R${Row}C${Column}`).innerHTML = ``
+                    Column--;
+                } else {
+                    document.getElementById(`R${Row}C${Column}`).innerHTML = ``
+                }
+            }
+
+
+            if (event.key === "Enter") {
+                if (Column == 5) {
+                    if (Row != 6) {
+                        console.log("Done")
+                        Row += 1
+                        Column = 1
+                    }
+                }
             }
         })
         </script>
@@ -51,43 +76,43 @@
         </div>
 
         <div class="boxloader">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box" id="R2C1"></div>
+            <div class="box" id="R2C2"></div>
+            <div class="box" id="R2C3"></div>
+            <div class="box" id="R2C4"></div>
+            <div class="box" id="R2C5"></div>
         </div>
     
         <div class="boxloader">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box" id="R3C1"></div>
+            <div class="box" id="R3C2"></div>
+            <div class="box" id="R3C3"></div>
+            <div class="box" id="R3C4"></div>
+            <div class="box" id="R3C5"></div>
         </div>
 
         <div class="boxloader">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box" id="R4C1"></div>
+            <div class="box" id="R4C2"></div>
+            <div class="box" id="R4C3"></div>
+            <div class="box" id="R4C4"></div>
+            <div class="box" id="R4C5"></div>
         </div>
 
         <div class="boxloader">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box" id="R5C1"></div>
+            <div class="box" id="R5C2"></div>
+            <div class="box" id="R5C3"></div>
+            <div class="box" id="R5C4"></div>
+            <div class="box" id="R5C5"></div>
         </div>
 
         <div class="boxloader">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
+            <div class="box" id="R6C1"></div>
+            <div class="box" id="R6C2"></div>
+            <div class="box" id="R6C3"></div>
+            <div class="box" id="R6C4"></div>
+            <div class="box" id="R6C5"></div>
         </div>
     </body>
 </html>
