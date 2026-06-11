@@ -18,3 +18,12 @@ h1 {
 
 <p id="test">this is the game</p>
 
+sessionStorage.setItem('Row', 1);
+sessionStorage.setItem('Column', 1);
+
+var Column = sessionStorage.getItem('Column');
+var Row = sessionStorage.getItem('Row');
+
+
+console.log(Row)
+console.log(Column)

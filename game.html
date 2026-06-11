@@ -18,8 +18,10 @@
     <body>
         
         <script>
+            var Row = 1;
+            var Column = 1;
         window.onload = function() {
-            var cword = sessionStorage.getItem('chosenword');
+            let cword = sessionStorage.getItem('chosenword');
             if (cword == null) {
                 alert("WORD MISSING PLEASE RELOAD")
                 window.location.href = "choice.html";
@@ -28,17 +30,24 @@
 
         document.addEventListener('keydown', function(event) {
             if (event.key.match(/^[A-Za-z]$/)) {
-               alert(`Key pressed: ${event.key}`)
+                document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                Column += 1
+            }
+            if (event.keyCode == 8) {
+                if (Column != 1)
+                Column = Column - 1
+                document.getElementById(`R${Row}C${Column}`).innerHTML = ``;
+                
             }
         })
         </script>
         <br><br><br><br><br><br><br><br><br>
         <div class="boxloader">
-            <div class="box">S</div>
-            <div class="box">T</div>
-            <div class="box">E</div>
-            <div class="box">A</div>
-            <div class="box">L</div>
+            <div class="box" id="R1C1"></div>
+            <div class="box" id="R1C2"></div>
+            <div class="box" id="R1C3"></div>
+            <div class="box" id="R1C4"></div>
+            <div class="box" id="R1C5"></div>
         </div>
 
         <div class="boxloader">
