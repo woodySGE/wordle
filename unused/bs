@@ -5,3 +5,15 @@
                 document.getElementById('test').innerHTML = 
                 '<p> The word is: NO FAST FREDBEAR FOUND</p>';
             }
+
+<style
+@font-face {
+    font-family: LFI;
+    src: url(fonts/LFI.ttf);
+}
+
+h1 {
+    font-family: LFI;
+}
+
+<p id="test">this is the game</p>

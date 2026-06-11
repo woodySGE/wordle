@@ -8,7 +8,7 @@
     </head>
     <body class="center">
 
-<h1 style="font-size:3vw; margin-top: -25px"; class="center-form">Word Insert</h1><br>
+<h2 style="font-size:3vw; margin-top: -25px"; class="center-form">Word Insert</h2><br>
 
 
 <style>
@@ -20,7 +20,7 @@
 </style>
 
 <form onsubmit="storeWord(event)" class="center-form">
-    <input class="chooseword" style="font-size:1vw" type="text" id="chosenword" name="chosenword"><br><br>
+    <input class="chooseword" type="text" id="chosenword" name="chosenword"><br><br>
     <input class="indexbutton"style="font-size:vw" type="submit" value="Submit">
 </form>
 
@@ -29,9 +29,16 @@ function storeWord(event) {
     event.preventDefault();
 
     var cword = document.getElementById('chosenword').value;
-    sessionStorage.setItem('chosenword', cword);
 
-    window.location.href = "wordle/game.html";
+    if (cword.length == 5) {
+        sessionStorage.setItem('chosenword', cword);
+
+        window.location.href = "game.html";
+    } else {
+        alert("pick one with 5 leters :D")
+    }
+
+
 }
 </script>
 </body>
