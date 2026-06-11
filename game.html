@@ -1,5 +1,6 @@
 <html>
     <head>
+        <script type="text/javascript" src="resources/words.js"></script> 
         <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
         <link rel="stylesheet" href="css/boxs.css">
         <link rel="stylesheet" href="css/body.css">
@@ -20,8 +21,9 @@
     <script>
         var Row = 1;
         var Column = 1;
+        var cword;
         window.onload = function() {
-            let cword = sessionStorage.getItem('chosenword');
+            cword = sessionStorage.getItem('chosenword').toUpperCase();
             if (cword == null) {
                 alert("WORD MISSING PLEASE RELOAD")
                 window.location.href = "choice.html";
@@ -64,20 +66,42 @@
             if (event.key === "Enter") {
                 console.log(Row)
                 console.log(Column)
-                console.log("_____")                
+                console.log("_____")
+                
+                var one = document.getElementById(`R${Row}C1`).innerHTML
+                var two = document.getElementById(`R${Row}C2`).innerHTML
+                var three = document.getElementById(`R${Row}C3`).innerHTML
+                var four = document.getElementById(`R${Row}C4`).innerHTML
+                var five = document.getElementById(`R${Row}C5`).innerHTML
+
+                var word = (one + two + three + four + five)
+                const result = validwordslist.includes(word)
+                console.log(word)
+                console.log(cword)
+                if (word == cword) {
+                    document.querySelectorAll("#R1 .box").forEach(box => {
+                        box.classList.add("correctletter")
+                    });
+                }
+                if (result == true) {
+                    alert("true")
+                } else {
+                    alert("false")
+                }
+
                 if (Column == 5) {
                     if (Row != 6) {
-                        console.log("Done")
+                        console.log("done")
                         Row += 1
                         Column = 1
                     }
                 }
             }
         })
-
+    
     </script>
         <br><br><br><br><br><br><br><br>
-        <div class="boxloader">
+        <div class="boxloader" id="R1">
             <div class="box" id="R1C1"></div>
             <div class="box" id="R1C2"></div>
             <div class="box" id="R1C3"></div>
@@ -85,7 +109,7 @@
             <div class="box" id="R1C5"></div>
         </div>
 
-        <div class="boxloader">
+        <div class="boxloader" id="R2">
             <div class="box" id="R2C1"></div>
             <div class="box" id="R2C2"></div>
             <div class="box" id="R2C3"></div>
@@ -93,7 +117,7 @@
             <div class="box" id="R2C5"></div>
         </div>
     
-        <div class="boxloader">
+        <div class="boxloader" id="R3">
             <div class="box" id="R3C1"></div>
             <div class="box" id="R3C2"></div>
             <div class="box" id="R3C3"></div>
@@ -101,7 +125,7 @@
             <div class="box" id="R3C5"></div>
         </div>
 
-        <div class="boxloader">
+        <div class="boxloader" id="R4">
             <div class="box" id="R4C1"></div>
             <div class="box" id="R4C2"></div>
             <div class="box" id="R4C3"></div>
@@ -109,7 +133,7 @@
             <div class="box" id="R4C5"></div>
         </div>
 
-        <div class="boxloader">
+        <div class="boxloader" id="R5">
             <div class="box" id="R5C1"></div>
             <div class="box" id="R5C2"></div>
             <div class="box" id="R5C3"></div>
@@ -117,7 +141,7 @@
             <div class="box" id="R5C5"></div>
         </div>
 
-        <div class="boxloader">
+        <div class="boxloader" id="R6">
             <div class="box" id="R6C1"></div>
             <div class="box" id="R6C2"></div>
             <div class="box" id="R6C3"></div>
