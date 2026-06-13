@@ -31,6 +31,8 @@
         };
 
         document.addEventListener('keydown', function(event) {
+            console.log(Row)
+            console.log(Column)
             if (event.key.match(/^[A-Za-z]$/)) {
                 if (Column != 5) {
                     document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
@@ -57,7 +59,7 @@
                 console.log("_____")
                 if (Column != 1) {
                     document.getElementById(`R${Row}C${Column}`).innerHTML = ``
-                    Column--;
+                    Column -= 1
                 } else {
                     document.getElementById(`R${Row}C${Column}`).innerHTML = ``
                 }
@@ -82,20 +84,23 @@
                     document.querySelectorAll(`#R${Row} .box`).forEach(box => {
                         box.classList.add("correctletter")
                     });
-                }
-                if (result == true) {
-                    alert("true")
                 } else {
-                    alert("false")
+
+                for (let i = 0; i < 5; i++) {
+                    if (word[i] === cword[i]){
+                        document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
+                    } else if (cword.includes(word[i])) {
+                        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                    } else {
+                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                    }
+                      
+                }
                 }
 
-                if (Column == 5) {
-                    if (Row != 6) {
-                        console.log("done")
-                        Row += 1
-                        Column = 1
-                    }
-                }
+                
+                
+               
             }
         })
     

@@ -27,3 +27,31 @@ var Row = sessionStorage.getItem('Row');
 
 console.log(Row)
 console.log(Column)
+
+if (result == true) {
+    alert("true")
+ else {
+    alert("false")
+}
+
+ROW CHANGING LOGIC 
+ if (Column == 5) {
+                    if (document.getElementById(`R${Row}C5`).innerHTML != '') {
+                        if (Row != 6) {
+                            console.log("done")
+                            Row += 1
+                            Column = 1
+                        }
+                    }
+                }
+
+  console.log("yes")
+                        if (cword.includes(word[i])) {
+                            let currentleter = word[i]
+                            let resultword = cword.indexOf(currentleter)
+                            if (cword[resultword] == currentleter) {
+                                console.log("OI OI")
+                                document.getElementById(`R${Row}C${resultword + 1}`).classList.add("correctletter")
+                            }
+                            
+                        }
