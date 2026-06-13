@@ -85,17 +85,36 @@
                         box.classList.add("correctletter")
                     });
                 } else {
+                
+                    
+                let list = [];
 
                 for (let i = 0; i < 5; i++) {
                     if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
+                        list.push(word[i])
                     } else if (cword.includes(word[i])) {
-                        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                        if (list.includes(word[i])) {
+                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                        } else {
+                            document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                        }
                     } else {
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                     }
                       
                 }
+
+                 if (Column == 5) {
+                    if (document.getElementById(`R${Row}C5`).innerHTML != '') {
+                        if (Row != 6) {
+                            console.log("done")
+                            Row += 1
+                            Column = 1
+                        }
+                    }
+                }
+                
                 }
 
                 
