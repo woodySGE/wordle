@@ -35,11 +35,11 @@
             console.log(Column)
             if (event.key.match(/^[A-Za-z]$/)) {
                 if (Column != 5) {
-                    document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    }
                 } else {
-                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length == 1) {
-                        null
-                    } else {
+                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
                         document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
                     }
                 }
@@ -84,16 +84,16 @@
                     document.querySelectorAll(`#R${Row} .box`).forEach(box => {
                         box.classList.add("correctletter")
                     });
-                } else {
+                } else if (validwordslist.includes(word)) {
                 
                     
                 let list = [];
 
                 for (let i = 0; i < 5; i++) {
-                    if (word[i] === cword[i]){ //AI WAS USED ON THIS LINE GOD DAM IT (BUT IT WAS WORKING BEFORE HAD IT JUST REWROTE IT TO ALLOW OTHER OUTCOMES)
+                    if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
                         list.push(word[i])
-                    } else if (cword.includes(word[i])) { // AI WAS USED ON THIS LINE GOD DAMIT
+                    } else if (cword.includes(word[i])) {
                         if (list.includes(word[i])) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                         } else {
