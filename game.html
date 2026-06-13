@@ -90,10 +90,10 @@
                 let list = [];
 
                 for (let i = 0; i < 5; i++) {
-                    if (word[i] === cword[i]){
+                    if (word[i] === cword[i]){ //AI WAS USED ON THIS LINE GOD DAM IT (BUT IT WAS WORKING BEFORE HAD IT JUST REWROTE IT TO ALLOW OTHER OUTCOMES)
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
                         list.push(word[i])
-                    } else if (cword.includes(word[i])) {
+                    } else if (cword.includes(word[i])) { // AI WAS USED ON THIS LINE GOD DAMIT
                         if (list.includes(word[i])) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                         } else {
@@ -114,7 +114,7 @@
                         }
                     }
                 }
-                
+
                 }
 
                 
