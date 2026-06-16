@@ -4,7 +4,7 @@ function mainevent(event, Row, Column) {
             if (event.key.match(/^[A-Za-z]$/)) {
                 if (Column == 0) {
                     if (document.getElementById(`R${Row}C1`).innerHTML != '') {
-                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                        document.getElementById(`R${Row}C1}`).innerHTML = `${event.key.toUpperCase()}`;
                     }
                 }
 
