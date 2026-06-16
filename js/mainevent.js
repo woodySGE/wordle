@@ -1,0 +1,106 @@
+function mainevent(event, Row, Column) {
+            console.log(Row)
+            console.log(Column)
+            if (event.key.match(/^[A-Za-z]$/)) {
+                if (Column == 0) {
+                    if (document.getElementById(`R${Row}C1`).innerHTML != '') {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    }
+                }
+
+                if (Column != 5) {
+                    console.log("added")
+                    Column += 1
+                    console.log(Row)
+                    console.log(Column)
+                    console.log("_____")
+                }
+
+                if (Column != 5) {
+                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    }
+                } else {
+                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
+                    }
+                }
+            }
+
+            if (event.key === "Backspace") {
+                if (Column != 0) {
+                    if (Column == 5) {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = ``
+                        Column--;
+                    } else if (Column != 0) {
+                        document.getElementById(`R${Row}C${Column }`).innerHTML = ``
+                        Column -= 1
+                    } else if (Column != 5) {
+                        document.getElementById(`R${Row}C${Column}`).innerHTML = ``
+                    }
+                }
+                console.log(Row)
+                console.log(Column)
+                console.log("_____")
+            }
+            
+            if (event.key === "Enter") {
+                console.log(Row)
+                console.log(Column)
+                console.log("_____")
+                
+                var one = document.getElementById(`R${Row}C1`).innerHTML
+                var two = document.getElementById(`R${Row}C2`).innerHTML
+                var three = document.getElementById(`R${Row}C3`).innerHTML
+                var four = document.getElementById(`R${Row}C4`).innerHTML
+                var five = document.getElementById(`R${Row}C5`).innerHTML
+
+                var word = (one + two + three + four + five)
+                const result = validwordslist.includes(word)
+                console.log(word)
+                console.log(cword)
+                if (word == cword) {
+                    document.querySelectorAll(`#R${Row} .box`).forEach(box => {
+                        box.classList.add("correctletter")
+                    });
+                    for (let i = 0; i < 5; i++) {
+                        document.getElementById(word[i]).classList.add("correctletter")
+                    }
+                } else if (validwordslist.includes(word)) {
+                
+                    
+                let list = [];
+
+                for (let i = 0; i < 5; i++) {
+                    if (word[i] === cword[i]){
+                        document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
+                        document.getElementById(word[i]).classList.add("correctletter")
+                        list.push(word[i])
+                    } else if (cword.includes(word[i])) {
+                        if (list.includes(word[i])) {
+                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                            document.getElementById(word[i]).classList.add("incorrectletter")
+                        } else {
+                            document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                            document.getElementById(word[i]).classList.add("includedletter")
+                        }
+                    } else {
+                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                        document.getElementById(word[i]).classList.add("incorrectletter")
+                    }
+                      
+                }
+
+                 if (Column == 5) {
+                    if (document.getElementById(`R${Row}C5`).innerHTML != '') {
+                        if (Row != 6) {
+                            console.log("done")
+                            Row += 1
+                            Column = 0
+                        }
+                    }
+                }
+        }
+        }
+        return Row, Column
+        }

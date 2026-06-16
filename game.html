@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="css/boxs.css">
         <link rel="stylesheet" href="css/body.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/buttons.js"></script>
+        <script src="js/mainevent.js"></script>
     </head>
     <style>
      @font-face {
@@ -20,7 +22,7 @@
         
     <script>
         var Row = 1;
-        var Column = 1;
+        var Column = 0;
         var cword;
         window.onload = function() {
             cword = sessionStorage.getItem('chosenword').toUpperCase();
@@ -31,105 +33,9 @@
         };
 
         document.addEventListener('keydown', function(event) {
-            console.log(Row)
-            console.log(Column)
-            if (event.key.match(/^[A-Za-z]$/)) {
-                if (Column != 5) {
-                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
-                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
-                    }
-                } else {
-                    if (document.getElementById(`R${Row}C${Column}`).innerHTML.length !== 1) {
-                        document.getElementById(`R${Row}C${Column}`).innerHTML = `${event.key.toUpperCase()}`;
-                    }
-                }
-
-                if (Column != 5) {
-                    console.log("added")
-                    Column += 1
-                    console.log(Row)
-                    console.log(Column)
-                    console.log("_____")
-                }
-            }
-
-            if (event.keyCode == 8) {
-                console.log(Row)
-                console.log(Column)
-                console.log("_____")
-                if (Column != 1) {
-                    document.getElementById(`R${Row}C${Column}`).innerHTML = ``
-                    Column -= 1
-                } else {
-                    document.getElementById(`R${Row}C${Column}`).innerHTML = ``
-                }
-            }
-            
-            if (event.key === "Enter") {
-                console.log(Row)
-                console.log(Column)
-                console.log("_____")
-                
-                var one = document.getElementById(`R${Row}C1`).innerHTML
-                var two = document.getElementById(`R${Row}C2`).innerHTML
-                var three = document.getElementById(`R${Row}C3`).innerHTML
-                var four = document.getElementById(`R${Row}C4`).innerHTML
-                var five = document.getElementById(`R${Row}C5`).innerHTML
-
-                var word = (one + two + three + four + five)
-                const result = validwordslist.includes(word)
-                console.log(word)
-                console.log(cword)
-                if (word == cword) {
-                    document.querySelectorAll(`#R${Row} .box`).forEach(box => {
-                        box.classList.add("correctletter")
-                    });
-                    for (let i = 0; i < 5; i++) {
-                        document.getElementById(word[i]).classList.add("correctletter")
-                    }
-                } else if (validwordslist.includes(word)) {
-                
-                    
-                let list = [];
-
-                for (let i = 0; i < 5; i++) {
-                    if (word[i] === cword[i]){
-                        document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
-                        document.getElementById(word[i]).classList.add("correctletter")
-                        list.push(word[i])
-                    } else if (cword.includes(word[i])) {
-                        if (list.includes(word[i])) {
-                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                            document.getElementById(word[i]).classList.add("incorrectletter")
-                        } else {
-                            document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                            document.getElementById(word[i]).classList.add("includedletter")
-                        }
-                    } else {
-                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                        document.getElementById(word[i]).classList.add("incorrectletter")
-                    }
-                      
-                }
-
-                 if (Column == 5) {
-                    if (document.getElementById(`R${Row}C5`).innerHTML != '') {
-                        if (Row != 6) {
-                            console.log("done")
-                            Row += 1
-                            Column = 1
-                        }
-                    }
-                }
-
-                }
-
-                
-                
-               
-            }
+            Row, Column = mainevent(event, Row, Column)
         })
-    
+        
     </script>
         <br><br><br>
         <div class="boxloader" id="R1">
@@ -182,40 +88,40 @@
         <br>
         
         <div class="boxloader" id="LR1">
-            <div class="letterbox" id="Q">q</div>
-            <div class="letterbox" id="W">w</div>
-            <div class="letterbox" id="E">e</div>
-            <div class="letterbox" id="R">r</div>
-            <div class="letterbox" id="T">t</div>
-            <div class="letterbox" id="Y">y</div>
-            <div class="letterbox" id="U">u</div>
-            <div class="letterbox" id="I">i</div>
-            <div class="letterbox" id="O">o</div>
-            <div class="letterbox" id="P">p</div>
+            <div class="letterbox" id="Q" onclick="QKey()">q</div>
+            <div class="letterbox" id="W" onclick="WKey()">w</div>
+            <div class="letterbox" id="E" onclick="EKey()">e</div>
+            <div class="letterbox" id="R" onclick="RKey()">r</div>
+            <div class="letterbox" id="T" onclick="TKey()">t</div>
+            <div class="letterbox" id="Y" onclick="YKey()">y</div>
+            <div class="letterbox" id="U" onclick="UKey()">u</div>
+            <div class="letterbox" id="I" onclick="IKey()">i</div>
+            <div class="letterbox" id="O" onclick="OKey()">o</div>
+            <div class="letterbox" id="P" onclick="PKey()">p</div>
         </div>
 
         <div class="boxloader" id="LR2">
-            <div class="letterbox" id="A">A</div>
-            <div class="letterbox" id="S">S</div>
-            <div class="letterbox" id="D">d</div>
-            <div class="letterbox" id="F">f</div>
-            <div class="letterbox" id="G">g</div>
-            <div class="letterbox" id="H">h</div>
-            <div class="letterbox" id="J">j</div>
-            <div class="letterbox" id="K">k</div>
-            <div class="letterbox" id="L">l</div>
+            <div class="letterbox" id="A" onclick="AKey()">A</div>
+            <div class="letterbox" id="S" onclick="SKey()">S</div>
+            <div class="letterbox" id="D" onclick="DKey()">d</div>
+            <div class="letterbox" id="F" onclick="FKey()">f</div>
+            <div class="letterbox" id="G" onclick="GKey()">g</div>
+            <div class="letterbox" id="H" onclick="HKey()">h</div>
+            <div class="letterbox" id="J" onclick="JKey()">j</div>
+            <div class="letterbox" id="K" onclick="KKey()">k</div>
+            <div class="letterbox" id="L" onclick="LKey()">l</div>
         </div>
 
         <div class="boxloader" id="LR3">
-            <div class="commandbox" id="ENTER">ENTER</div>
-            <div class="letterbox" id="Z">z</div>
-            <div class="letterbox" id="X">x</div>
-            <div class="letterbox" id="C">c</div>
-            <div class="letterbox" id="V">v</div>
-            <div class="letterbox" id="B">b</div>
-            <div class="letterbox" id="N">n</div>
-            <div class="letterbox" id="M">m</div>
-            <div class="backspacebox" id="BACKSPACE">
+            <div class="commandbox" id="ENTER" tabindex="0" onclick="enterKey()">ENTER</div>
+            <div class="letterbox" id="Z" onclick="ZKey()">z</div>
+            <div class="letterbox" id="X" onclick="XKey()">x</div>
+            <div class="letterbox" id="C" onclick="CKey()">c</div>
+            <div class="letterbox" id="V" onclick="VKey()">v</div>
+            <div class="letterbox" id="B" onclick="BKey()">b</div>
+            <div class="letterbox" id="N" onclick="NKey()">n</div>
+            <div class="letterbox" id="M" onclick="MKey()">m</div>
+            <div class="backspacebox" id="BACKSPACE" tabindex="0" onclick="backspaceKey()" BACKSPACE>
                 <img src="images/backspace.png" alt="Trulli" style="width: 35" class="backspaceimage">
             </div>
         </div>
