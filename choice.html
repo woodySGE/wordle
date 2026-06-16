@@ -28,15 +28,29 @@
 <script>
 function storeWord(event) {
     event.preventDefault();
-
+    let falsecharacter = false;
+    const valid = (/[A-Za-z]/)
     var cword = document.getElementById('chosenword').value;
-
     if (cword.length == 5) {
-        sessionStorage.setItem('chosenword', cword);
+        for (let i = 0; i < 5; i++) {
+            console.log(cword[i])
+            if (cword[i].match(valid)) {
+                console.log("false")
+            } else {
+                falsecharacter = true;
+                console.log("true")
+            }
 
-        window.location.href = "game.html";
-    } else {
-        alert("pick one with 5 leters :D")
+        }
+        if (falsecharacter == false) {
+            sessionStorage.setItem('chosenword', cword);
+
+            window.location.href = "game.html";
+        } else {alertmessage("no special characters bucko only A-Z :P")};
+    } else {alertmessage("pick one with 5 leters :D")};
+    
+    function alertmessage(message) {
+        alert(message)
     }
 
 

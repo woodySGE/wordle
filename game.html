@@ -84,6 +84,9 @@
                     document.querySelectorAll(`#R${Row} .box`).forEach(box => {
                         box.classList.add("correctletter")
                     });
+                    for (let i = 0; i < 5; i++) {
+                        document.getElementById(word[i]).classList.add("correctletter")
+                    }
                 } else if (validwordslist.includes(word)) {
                 
                     
@@ -92,15 +95,19 @@
                 for (let i = 0; i < 5; i++) {
                     if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
+                        document.getElementById(word[i]).classList.add("correctletter")
                         list.push(word[i])
                     } else if (cword.includes(word[i])) {
                         if (list.includes(word[i])) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                            document.getElementById(word[i]).classList.add("incorrectletter")
                         } else {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                            document.getElementById(word[i]).classList.add("includedletter")
                         }
                     } else {
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                        document.getElementById(word[i]).classList.add("incorrectletter")
                     }
                       
                 }
@@ -124,7 +131,7 @@
         })
     
     </script>
-        <br><br><br><br><br><br><br><br>
+        <br><br><br>
         <div class="boxloader" id="R1">
             <div class="box" id="R1C1"></div>
             <div class="box" id="R1C2"></div>
@@ -172,5 +179,46 @@
             <div class="box" id="R6C4"></div>
             <div class="box" id="R6C5"></div>
         </div>
+        <br>
+        
+        <div class="boxloader" id="LR1">
+            <div class="letterbox" id="Q">q</div>
+            <div class="letterbox" id="W">w</div>
+            <div class="letterbox" id="E">e</div>
+            <div class="letterbox" id="R">r</div>
+            <div class="letterbox" id="T">t</div>
+            <div class="letterbox" id="Y">y</div>
+            <div class="letterbox" id="U">u</div>
+            <div class="letterbox" id="I">i</div>
+            <div class="letterbox" id="O">o</div>
+            <div class="letterbox" id="P">p</div>
+        </div>
+
+        <div class="boxloader" id="LR2">
+            <div class="letterbox" id="A">A</div>
+            <div class="letterbox" id="S">S</div>
+            <div class="letterbox" id="D">d</div>
+            <div class="letterbox" id="F">f</div>
+            <div class="letterbox" id="G">g</div>
+            <div class="letterbox" id="H">h</div>
+            <div class="letterbox" id="J">j</div>
+            <div class="letterbox" id="K">k</div>
+            <div class="letterbox" id="L">l</div>
+        </div>
+
+        <div class="boxloader" id="LR3">
+            <div class="commandbox" id="ENTER">ENTER</div>
+            <div class="letterbox" id="Z">z</div>
+            <div class="letterbox" id="X">x</div>
+            <div class="letterbox" id="C">c</div>
+            <div class="letterbox" id="V">v</div>
+            <div class="letterbox" id="B">b</div>
+            <div class="letterbox" id="N">n</div>
+            <div class="letterbox" id="M">m</div>
+            <div class="backspacebox" id="BACKSPACE">
+                <img src="images/backspace.png" alt="Trulli" style="width: 35" class="backspaceimage">
+            </div>
+        </div>
+        
     </body>
 </html>
