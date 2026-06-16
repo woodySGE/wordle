@@ -1,10 +1,10 @@
-function mainevent(event, Row, Column) {
+function mainevent(event, Row, Column, Completed) {
             console.log(Row)
             console.log(Column)
             if (event.key.match(/^[A-Za-z]$/)) {
                 if (Column == 0) {
                     if (document.getElementById(`R${Row}C1`).innerHTML != '') {
-                        document.getElementById(`R${Row}C1}`).innerHTML = `${event.key.toUpperCase()}`;
+                        document.getElementById(`R${Row}C${Column + 1}`).innerHTML = `${event.key.toUpperCase()}`;
                     }
                 }
 
@@ -66,6 +66,7 @@ function mainevent(event, Row, Column) {
                     for (let i = 0; i < 5; i++) {
                         document.getElementById(word[i]).classList.add("correctletter")
                     }
+                    Completed = true;
                 } else if (validwordslist.includes(word)) {
                 
                     
@@ -95,12 +96,15 @@ function mainevent(event, Row, Column) {
                     if (document.getElementById(`R${Row}C5`).innerHTML != '') {
                         if (Row != 6) {
                             console.log("done")
-                            Row += 1
+                            Row++;
                             Column = 0
+                            console.log(Row)
+                            console.log(Column)
+                            console.log("_____")
                         }
                     }
                 }
         }
         }
-        return Row, Column
+        return [Row, Column, Completed]
         }

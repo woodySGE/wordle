@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <script type="text/javascript" src="resources/words.js"></script> 
         <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
         <link rel="stylesheet" href="css/boxs.css">
@@ -7,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/buttons.js"></script>
         <script src="js/mainevent.js"></script>
+        <script src="js/functions.js"></script>
     </head>
     <style>
      @font-face {
@@ -24,6 +26,8 @@
         var Row = 1;
         var Column = 0;
         var cword;
+        var Completed = false;
+
         window.onload = function() {
             cword = sessionStorage.getItem('chosenword').toUpperCase();
             if (cword == null) {
@@ -33,9 +37,17 @@
         };
 
         document.addEventListener('keydown', function(event) {
-            Row, Column = mainevent(event, Row, Column)
+            if (Completed != true) {
+                [Row, Column, Completed] = mainevent(event, Row, Column, Completed)
+            }
+            if (Completed == true) {
+                const Timeout = setTimeout(Winner, 5000);
+                
+        }
         })
         
+
+
     </script>
         <br><br><br>
         <div class="boxloader" id="R1">
@@ -125,6 +137,8 @@
                 <img src="images/backspace.png" alt="Trulli" style="width: 35" class="backspaceimage">
             </div>
         </div>
-        
+        <br><br><br>
+        <h1 style="font-size: 60px; margin-bottom: 15px; align-items: center; flex-direction: column; display: flex;" id="EndHeading"></h1>    
+        <p style="font-size: 25px; margin-top: 0; align-items: center; flex-direction: column; display: flex;" id="EndSubtitle"></p>
     </body>
 </html>
