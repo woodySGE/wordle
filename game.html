@@ -27,29 +27,38 @@
         var Column = 0;
         var cword;
         var Completed = false;
+        var Failed = false;
 
         window.onload = function() {
-            cword = sessionStorage.getItem('chosenword').toUpperCase();
-            if (cword == null) {
+            let cwordOG = sessionStorage.getItem('chosenword')
+            if (cwordOG == undefined) {
                 alert("WORD MISSING PLEASE RELOAD")
                 window.location.href = "choice.html";
+            } else {
+                cword = cwordOG.toUpperCase();
             }
         };
 
         document.addEventListener('keydown', function(event) {
             if (Completed != true) {
-                [Row, Column, Completed] = mainevent(event, Row, Column, Completed)
+                if (Failed != true) {
+                    [Row, Column, Completed, Failed] = mainevent(event, Row, Column, Completed)
+                }
             }
             if (Completed == true) {
-                const Timeout = setTimeout(Winner, 5000);
-                
-        }
+                const Timeout = setTimeout(Winner, 3000);
+            }
+
+            if (Failed == true) {
+                const Timeout1 = setTimeout(Loser, 3000);
+            }
         })
         
 
 
     </script>
-        <br><br><br>
+        <div class="wordinvalid" id="wordinvalid"></div>
+        <br>
         <div class="boxloader" id="R1">
             <div class="box" id="R1C1"></div>
             <div class="box" id="R1C2"></div>

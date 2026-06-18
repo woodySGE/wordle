@@ -1,4 +1,4 @@
-function mainevent(event, Row, Column, Completed) {
+function mainevent(event, Row, Column, Completed, Failed) {
             console.log(Row)
             console.log(Column)
             if (event.key.match(/^[A-Za-z]$/)) {
@@ -101,10 +101,36 @@ function mainevent(event, Row, Column, Completed) {
                             console.log(Row)
                             console.log(Column)
                             console.log("_____")
+                        } else {
+                            let checkvalue = 0;
+                            for (let i = 1; i < 6; i++) {
+                                if (document.getElementById(`R6C${i}`).classList.contains("incorrectletter")) {
+                                    checkvalue++;
+                                }
+                            }
+                            if (checkvalue == 5) {
+                                Failed = true;
+                            }
                         }
                     }
                 }
+        } else {
+            if (word.length != 5) {
+                document.getElementById(`wordinvalid`).innerHTML = 'Not Enough Letters'
+                document.getElementById(`wordinvalid`).style.visibility = "visible"
+                setTimeout(() => {
+                    document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                    document.getElementById(`wordinvalid`).innerHTML = ''
+                }, 2500);
+            } else {
+                document.getElementById(`wordinvalid`).innerHTML = 'Not A Valid Word.'
+                document.getElementById(`wordinvalid`).style.visibility = "visible"
+                setTimeout(() => {
+                    document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                    document.getElementById(`wordinvalid`).innerHTML = ''
+                }, 2500);
+            }
         }
         }
-        return [Row, Column, Completed]
+        return [Row, Column, Completed, Failed]
         }
