@@ -72,6 +72,21 @@ function mainevent(event, Row, Column, Completed, Failed) {
                     
                 let list = [];
 
+                let seenletters = [];
+                let duplicates = new Object()
+                for (let i = 0; i < 5; i++) {
+                    seenletters.push(word[i])
+                    if (i in seenletters) {
+                        if (duplicates[word[i]]) {
+                            duplicates[word[i]] = duplicates[word[i]] + 1
+                        } else {
+                            duplicates[word[i]] = 1
+                        }
+                    }
+                }
+
+                console.log(duplicates)
+
                 for (let i = 0; i < 5; i++) {
                     if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
@@ -82,8 +97,18 @@ function mainevent(event, Row, Column, Completed, Failed) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                             document.getElementById(word[i]).classList.add("incorrectletter")
                         } else {
-                            document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                            document.getElementById(word[i]).classList.add("includedletter")
+
+                            console.log("-_-_-_-")
+                            console.log(duplicates[word[i]])
+                            if (duplicates[word[i]] != 1) {
+                                document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                document.getElementById(word[i]).classList.add("includedletter")
+                            } else {
+                                document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                document.getElementById(word[i]).classList.add("includedletter")
+                            }
+
+
                         }
                     } else {
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")

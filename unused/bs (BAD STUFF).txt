@@ -55,3 +55,12 @@ ROW CHANGING LOGIC
                             }
                             
                         }
+
+                        if (word[i] in duplicates) {
+                                for(var key in duplicates) {
+                                    var item = duplicates[key];
+                                    console.log(":)")
+                                    console.log("_____")
+                                    console.log(item)
+                                }
+                            }
