@@ -97,7 +97,7 @@ function mainevent(event, Row, Column, Completed, Failed) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                             document.getElementById(word[i]).classList.add("incorrectletter")
                         } else {
-
+                            // yah yah
                             console.log("-_-_-_-")
                             console.log(duplicates[word[i]])
                             if (duplicates[word[i]] != 1) {
@@ -129,11 +129,11 @@ function mainevent(event, Row, Column, Completed, Failed) {
                         } else {
                             let checkvalue = 0;
                             for (let i = 1; i < 6; i++) {
-                                if (document.getElementById(`R6C${i}`).classList.contains("incorrectletter")) {
+                                if (document.getElementById(`R6C${i}`).classList.contains("correctletter")) {
                                     checkvalue++;
                                 }
                             }
-                            if (checkvalue == 5) {
+                            if (checkvalue != 5) {
                                 Failed = true;
                             }
                         }
