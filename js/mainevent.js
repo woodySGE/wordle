@@ -87,34 +87,44 @@ function mainevent(event, Row, Column, Completed, Failed) {
 
                 console.log(duplicates)
 
+                let lettercheck = new Object()
+
                 for (let i = 0; i < 5; i++) {
                     if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
-                        document.getElementById(word[i]).classList.add("correctletter")
+                        UpdateLetter(word, i, "correctletter")
                         list.push(word[i])
                     } else if (cword.includes(word[i])) {
                         if (list.includes(word[i])) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                            document.getElementById(word[i]).classList.add("incorrectletter")
+                            UpdateLetter(word, i, "incorrectletter")
                         } else {
-                            // yah yah
                             console.log("-_-_-_-")
                             console.log(duplicates[word[i]])
                             if (duplicates[word[i]] != 1) {
-                                document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                document.getElementById(word[i]).classList.add("includedletter")
+                                if (Number.isInteger(lettercheck[word[i]])) {
+                                    if (lettercheck[word[i]] <= duplicates[word[i]]) {
+                                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                                        UpdateLetter(word, i, "incorrectletter")
+                                    } else {
+                                        lettercheck[word[i]] = lettercheck[word[i]] + 1
+                                        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                        UpdateLetter(word, i, "includedletter")
+                                    }
+                                } else {
+                                    document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                    UpdateLetter(word, i, "includedletter")
+                                    lettercheck[word[i]] = 1
+                                }
                             } else {
                                 document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                document.getElementById(word[i]).classList.add("includedletter")
+                                UpdateLetter(word, i, "includedletter")
                             }
-
-
                         }
                     } else {
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                        document.getElementById(word[i]).classList.add("incorrectletter")
+                        UpdateLetter(word, i, "incorrectletter")
                     }
-                      
                 }
 
                  if (Column == 5) {
@@ -140,20 +150,22 @@ function mainevent(event, Row, Column, Completed, Failed) {
                     }
                 }
         } else {
-            if (word.length != 5) {
-                document.getElementById(`wordinvalid`).innerHTML = 'Not Enough Letters'
-                document.getElementById(`wordinvalid`).style.visibility = "visible"
-                setTimeout(() => {
-                    document.getElementById(`wordinvalid`).style.visibility = "hidden"
-                    document.getElementById(`wordinvalid`).innerHTML = ''
-                }, 2500);
-            } else {
-                document.getElementById(`wordinvalid`).innerHTML = 'Not A Valid Word.'
-                document.getElementById(`wordinvalid`).style.visibility = "visible"
-                setTimeout(() => {
-                    document.getElementById(`wordinvalid`).style.visibility = "hidden"
-                    document.getElementById(`wordinvalid`).innerHTML = ''
-                }, 2500);
+            if (document.getElementById(`wordinvalid`).style.visibility != "visible") {
+                if (word.length != 5) {
+                        document.getElementById(`wordinvalid`).innerHTML = 'Not Enough Letters'
+                        document.getElementById(`wordinvalid`).style.visibility = "visible"
+                        setTimeout(() => {
+                            document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                            document.getElementById(`wordinvalid`).innerHTML = ''
+                        }, 2500);
+                    } else {
+                        document.getElementById(`wordinvalid`).innerHTML = 'Not A Valid Word.'
+                        document.getElementById(`wordinvalid`).style.visibility = "visible"
+                        setTimeout(() => {
+                            document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                            document.getElementById(`wordinvalid`).innerHTML = ''
+                        }, 2500);
+                    }
             }
         }
         }
