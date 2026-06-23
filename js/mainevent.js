@@ -155,15 +155,19 @@ function mainevent(event, Row, Column, Completed, Failed) {
                         document.getElementById(`wordinvalid`).innerHTML = 'Not Enough Letters'
                         document.getElementById(`wordinvalid`).style.visibility = "visible"
                         setTimeout(() => {
-                            document.getElementById(`wordinvalid`).style.visibility = "hidden"
-                            document.getElementById(`wordinvalid`).innerHTML = ''
+                            if (document.getElementById(`wordinvalid`).innerHTML != `${cword}`) {
+                                document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                                document.getElementById(`wordinvalid`).innerHTML = ''
+                            }
                         }, 2500);
                     } else {
                         document.getElementById(`wordinvalid`).innerHTML = 'Not A Valid Word.'
                         document.getElementById(`wordinvalid`).style.visibility = "visible"
                         setTimeout(() => {
-                            document.getElementById(`wordinvalid`).style.visibility = "hidden"
-                            document.getElementById(`wordinvalid`).innerHTML = ''
+                            if (document.getElementById(`wordinvalid`).innerHTML != `${cword}`) {
+                                document.getElementById(`wordinvalid`).style.visibility = "hidden"
+                                document.getElementById(`wordinvalid`).innerHTML = ''
+                            }
                         }, 2500);
                     }
             }

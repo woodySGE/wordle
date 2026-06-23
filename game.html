@@ -50,6 +50,11 @@
             }
 
             if (Failed == true) {
+                document.getElementById(`wordinvalid`).innerHTML = `${cword}`
+                document.getElementById(`wordinvalid`).style.fontSize = 22
+                document.getElementById(`wordinvalid`).style.letterSpacing = 1
+                document.getElementById(`wordinvalid`).style.width = 94
+                document.getElementById(`wordinvalid`).style.visibility = "visible"
                 const Timeout1 = setTimeout(Loser, 3000);
             }
         })
@@ -150,6 +155,8 @@
         </div>
         <br><br><br>
         <h1 style="font-size: 60px; margin-bottom: 15px; align-items: center; flex-direction: column; display: flex;" id="EndHeading"></h1>    
-        <p style="font-size: 25px; margin-top: 0; align-items: center; flex-direction: column; display: flex;" id="EndSubtitle"></p>
+        <div style="font-size: 25px; margin-top: 0; align-items: center; flex-direction: column; display: flex;" id="EndSubtitle">
+            <img src="images/back.png" alt="Trulli">    
+        </div>
     </body>
 </html>
