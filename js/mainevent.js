@@ -28,6 +28,7 @@ function mainevent(event, Row, Column, Completed, Failed) {
             }
 
             if (event.key === "Backspace") {
+                event.preventDefault();
                 if (Column != 0) {
                     if (Column == 5) {
                         document.getElementById(`R${Row}C${Column}`).innerHTML = ``
