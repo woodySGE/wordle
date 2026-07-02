@@ -64,3 +64,7 @@ ROW CHANGING LOGIC
                                     console.log(item)
                                 }
                             }
+
+function MARKIPLIER(result) {
+    document.getElementById(`${result}audio`).play();
+}

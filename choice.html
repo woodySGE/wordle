@@ -3,9 +3,19 @@
             <link rel="icon" type="image/x-icon" href="images/Favicon.ico">
             <link rel="stylesheet" href="css/center.css">
             <link rel="stylesheet" href="css/body.css">
+            <link rel="stylesheet" href="css/boxs.css">
             <link rel="stylesheet" href="css/indexbutton.css">
+            <script type="text/javascript" src="resources/vanity.js"></script> 
+            <script type="text/javascript" src="resources/vanitylist.js"></script> 
             <link rel="stylesheet" href="css/chooseword.css">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <audio id="Eaudio">
+                <source src="resources/sounds/E.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="CHEESEaudio">
+                <source src="resources/sounds/cheese.mp3" type="audio/mpeg">
+            </audio>
     </head>
     <body class="center">
 
@@ -25,12 +35,15 @@
     <input class="indexbutton"style="font-size:vw" type="submit" value="Submit">
 </form>
 
+<!--<div class="full-page" id="backroundIMAGE"></div>-->
+<div class="full-page" id="backgroundIMAGE"></div>
 <script>
 function storeWord(event) {
     event.preventDefault();
     let falsecharacter = false;
     const valid = (/[A-Za-z]/)
     var cword = document.getElementById('chosenword').value;
+    easteregg(cword)
     if (cword.length == 5) {
         for (let i = 0; i < 5; i++) {
             console.log(cword[i])
@@ -40,8 +53,8 @@ function storeWord(event) {
                 falsecharacter = true;
                 console.log("true")
             }
-
         }
+        
         if (falsecharacter == false) {
             sessionStorage.setItem('chosenword', cword);
 
