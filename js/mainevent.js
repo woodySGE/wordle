@@ -100,7 +100,7 @@ function mainevent(event, Row, Column, Completed, Failed) {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                             UpdateLetter(word, i, "incorrectletter")
                         } else {
-                            console.log("-_-_-_-")
+                            //console.log("-_-_-_-")
                             console.log(duplicates[word[i]])
                             if (duplicates[word[i]] != 1) {
                                 if (Number.isInteger(lettercheck[word[i]])) {
@@ -111,15 +111,18 @@ function mainevent(event, Row, Column, Completed, Failed) {
                                         lettercheck[word[i]] = lettercheck[word[i]] + 1
                                         document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                         UpdateLetter(word, i, "includedletter")
+                                        //console.log("case 1")
                                     }
                                 } else {
-                                    document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                    UpdateLetter(word, i, "includedletter")
+                                    document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                                    UpdateLetter(word, i, "incorrectletter")
                                     lettercheck[word[i]] = 1
+                                    //console.log("case 2")
                                 }
                             } else {
                                 document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                 UpdateLetter(word, i, "includedletter")
+                                //console.log("case 3")
                             }
                         }
                     } else {
