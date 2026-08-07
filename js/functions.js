@@ -66,5 +66,9 @@ function UpdateLetter(word, i, value) {
 }
 
 function GoBack() {
-    window.location.href = "choice.html";
+    if (confirm("Are you sure you want to restart?")) {
+        window.location.href = "choice.html";
+    }
+    
+
 }
