@@ -114,8 +114,8 @@ function mainevent(event, Row, Column, Completed, Failed) {
                                         //console.log("case 1")
                                     }
                                 } else {
-                                    document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                                    UpdateLetter(word, i, "incorrectletter")
+                                    document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                    UpdateLetter(word, i, "includedletter")
                                     lettercheck[word[i]] = 1
                                     //console.log("case 2")
                                 }
