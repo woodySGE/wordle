@@ -95,39 +95,45 @@ function mainevent(event, Row, Column, Completed, Failed) {
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
                         UpdateLetter(word, i, "correctletter")
                         list.push(word[i])
-                    } else if (cword.includes(word[i])) {
-                        if (list.includes(word[i])) {
-                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                            UpdateLetter(word, i, "incorrectletter")
-                        } else {
-                            //console.log("-_-_-_-")
-                            console.log(duplicates[word[i]])
-                            if (duplicates[word[i]] != 1) {
-                                if (Number.isInteger(lettercheck[word[i]])) {
-                                    if (lettercheck[word[i]] <= duplicates[word[i]]) {
-                                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                                        UpdateLetter(word, i, "incorrectletter")
+                    }
+                }
+
+                for (let i = 0; i < 5; i++) {
+                    if (word[i] !== cword[i]){
+                        if (cword.includes(word[i])) {
+                            if (list.includes(word[i])) {
+                                document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                                UpdateLetter(word, i, "incorrectletter")
+                            } else {
+                                //console.log("-_-_-_-")
+                                console.log(duplicates[word[i]])
+                                if (duplicates[word[i]] != 1) {
+                                    if (Number.isInteger(lettercheck[word[i]])) {
+                                        if (lettercheck[word[i]] <= duplicates[word[i]]) {
+                                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                                            UpdateLetter(word, i, "incorrectletter")
+                                        } else {
+                                            lettercheck[word[i]] = lettercheck[word[i]] + 1
+                                            document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                            UpdateLetter(word, i, "includedletter")
+                                            //console.log("case 1")
+                                        }
                                     } else {
-                                        lettercheck[word[i]] = lettercheck[word[i]] + 1
                                         document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                         UpdateLetter(word, i, "includedletter")
-                                        //console.log("case 1")
+                                        lettercheck[word[i]] = 1
+                                        //console.log("case 2")
                                     }
                                 } else {
                                     document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                     UpdateLetter(word, i, "includedletter")
-                                    lettercheck[word[i]] = 1
-                                    //console.log("case 2")
+                                    //console.log("case 3")
                                 }
-                            } else {
-                                document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                UpdateLetter(word, i, "includedletter")
-                                //console.log("case 3")
                             }
+                        } else {
+                            document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                            UpdateLetter(word, i, "incorrectletter")
                         }
-                    } else {
-                        document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                        UpdateLetter(word, i, "incorrectletter")
                     }
                 }
 
