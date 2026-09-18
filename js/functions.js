@@ -1,29 +1,29 @@
 function Winner() {
     document.getElementById(`BackButton`).style.visibility = "visible"
-    document.getElementById("EndSubtitle").innerHTML = "Fast Fredbear approves 👍."
+    document.getElementById("EndSubtitle").innerHTML = "Boots approves 👍."
     document.getElementById("EndHeading").innerHTML = "You Win!"
 }
 
 function Loser() {
     document.getElementById(`BackButton`).style.visibility = "visible"
-    document.getElementById("EndSubtitle").innerHTML = "FAST FREDBEAR WILL BE SEEING YOU LATER"
+    document.getElementById("EndSubtitle").innerHTML = "BOOTS WILL BE SEEING YOU LATER"
     document.getElementById("EndHeading").innerHTML = "YOU FAILED...."
 }
 function UpdateLetter(word, i, value) {
     
     if (value == "correctletter") {
         if (document.getElementById(word[i]).classList.contains("correctletter")){
-            console.log("BAHHH")
+            console.warn("BAHHH")
         } else {
         if (document.getElementById(word[i]).classList.contains("includedletter")) {
-            console.log("PARSED INCLUDED CORRECT")
+            console.warn("PARSED INCLUDED CORRECT")
             document.getElementById(word[i]).classList.remove("includedletter")
             document.getElementById(word[i]).classList.add("correctletter")
         } else {
             if (document.getElementById(word[i]).classList.contains("incorrectletter")) {
-                console.log("NO")
+                console.warn("NO")
             } else {
-                console.log("PARSED CORRECT")
+                console.warn("PARSED CORRECT")
                 document.getElementById(word[i]).classList.add("correctletter")
             }
         }
@@ -32,15 +32,15 @@ function UpdateLetter(word, i, value) {
 
     if (value == "includedletter") {
         if (document.getElementById(word[i]).classList.contains("correctletter")){
-            console.log("BAHHH")
+            console.warn("BAHHH")
         } else {
         if (document.getElementById(word[i]).classList.contains("includedletter")) {
-            console.log("BAHHHHHHHH")
+            console.warn("BAHHHHHHHH")
         } else {
             if (document.getElementById(word[i]).classList.contains("incorrectletter")) {
-                console.log("NO")
+                console.warn("NO")
             } else {
-                console.log("PARSED INCLUDED")
+                console.warn("PARSED INCLUDED")
                 document.getElementById(word[i]).classList.add("includedletter")
             }
         }
@@ -49,15 +49,15 @@ function UpdateLetter(word, i, value) {
 
     if (value == "incorrectletter") {
         if (document.getElementById(word[i]).classList.contains("correctletter")){
-            console.log("BAHHH")
+            console.warn("BAHHH")
         } else {
         if (document.getElementById(word[i]).classList.contains("includedletter")) {
-            console.log("BAHHHHHHHH")
+            console.warn("BAHHHHHHHH")
         } else {
             if (document.getElementById(word[i]).classList.contains("incorrectletter")) {
-                console.log("NO")
+                console.warn("NO")
             } else {
-                console.log("PARSED INCORRECT")
+                console.warn("PARSED INCORRECT")
                 document.getElementById(word[i]).classList.add("incorrectletter")
             }
         }

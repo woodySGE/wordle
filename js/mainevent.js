@@ -86,7 +86,7 @@ function mainevent(event, Row, Column, Completed, Failed) {
                     }
                 }
 
-                console.log(duplicates)
+                console.log(duplicates + "UDPLCAITYEs")
 
                 let lettercheck = new Object()
 
@@ -94,17 +94,25 @@ function mainevent(event, Row, Column, Completed, Failed) {
                     if (word[i] === cword[i]){
                         document.getElementById(`R${Row}C${i + 1}`).classList.add("correctletter")
                         UpdateLetter(word, i, "correctletter")
+                        console.log(`${word[i]} is CORRECT`)
+                        if (Number.isInteger(lettercheck[word[i]])){
+                            console.log("yes")
+                            lettercheck[word[i]] = lettercheck[word[i]] + 1
+                        } else {lettercheck[word[i]] = 1}
                         list.push(word[i])
                     }
                 }
-
+                
+                //console.log(lettercheck)
+                
                 for (let i = 0; i < 5; i++) {
                     if (word[i] !== cword[i]){
                         if (cword.includes(word[i])) {
-                            if (list.includes(word[i])) {
-                                document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                                UpdateLetter(word, i, "incorrectletter")
-                            } else {
+                            //if (list.includes(word[i])) {
+                            //    document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+                            //    UpdateLetter(word, i, "incorrectletter")
+                            //    console.log(`${word[i]} Not in Word - Case 6`)
+                            //} else {
                                 //console.log("-_-_-_-")
                                 console.log(duplicates[word[i]])
                                 if (duplicates[word[i]] != 1) {
@@ -112,31 +120,35 @@ function mainevent(event, Row, Column, Completed, Failed) {
                                         if (lettercheck[word[i]] <= duplicates[word[i]]) {
                                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                                             UpdateLetter(word, i, "incorrectletter")
+                                            console.log(`${word[i]} Not in Word - Case 5`)
                                         } else {
                                             lettercheck[word[i]] = lettercheck[word[i]] + 1
                                             document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                             UpdateLetter(word, i, "includedletter")
-                                            //console.log("case 1")
+                                            console.log(`${word[i]} is INCLUDED - case 1`)
                                         }
                                     } else {
                                         document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                         UpdateLetter(word, i, "includedletter")
                                         lettercheck[word[i]] = 1
-                                        //console.log("case 2")
+                                        console.log(`${word[i]} is INCLUDED - case 2`)
                                     }
                                 } else {
                                     document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                     UpdateLetter(word, i, "includedletter")
-                                    //console.log("case 3")
+                                    console.log(`${word[i]} is INCLUDED - case 3`)
                                 }
-                            }
+                            
+                            
                         } else {
                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                             UpdateLetter(word, i, "incorrectletter")
+                            console.log(`${word[i]} Not in Word - Case 4`)
                         }
                     }
                 }
-
+                
+                console.log(lettercheck)
                  if (Column == 5) {
                     if (document.getElementById(`R${Row}C5`).innerHTML != '') {
                         if (Row != 6) {
