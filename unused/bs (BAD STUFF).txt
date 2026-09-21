@@ -68,3 +68,10 @@ ROW CHANGING LOGIC
 function MARKIPLIER(result) {
     document.getElementById(`${result}audio`).play();
 }
+
+if (list.includes(word[i])) {
+    document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
+    UpdateLetter(word, i, "incorrectletter")
+    console.log(`${word[i]} Not in Word - Case 6`)
+} else {
+    console.log("-_-_-_-")

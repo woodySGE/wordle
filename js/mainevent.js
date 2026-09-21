@@ -108,16 +108,11 @@ function mainevent(event, Row, Column, Completed, Failed) {
                 for (let i = 0; i < 5; i++) {
                     if (word[i] !== cword[i]){
                         if (cword.includes(word[i])) {
-                            //if (list.includes(word[i])) {
-                            //    document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
-                            //    UpdateLetter(word, i, "incorrectletter")
-                            //    console.log(`${word[i]} Not in Word - Case 6`)
-                            //} else {
-                                //console.log("-_-_-_-")
                                 console.log(duplicates[word[i]])
                                 if (duplicates[word[i]] != 1) {
-                                    if (Number.isInteger(lettercheck[word[i]])) {
+                                   // if (Number.isInteger(lettercheck[word[i]])) {
                                         if (lettercheck[word[i]] <= duplicates[word[i]]) {
+                                            console.log(`${lettercheck[word[i]]} - ` + `${duplicates[word[i]]}`)
                                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                                             UpdateLetter(word, i, "incorrectletter")
                                             console.log(`${word[i]} Not in Word - Case 5`)
@@ -127,12 +122,12 @@ function mainevent(event, Row, Column, Completed, Failed) {
                                             UpdateLetter(word, i, "includedletter")
                                             console.log(`${word[i]} is INCLUDED - case 1`)
                                         }
-                                    } else {
-                                        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                        UpdateLetter(word, i, "includedletter")
-                                        lettercheck[word[i]] = 1
-                                        console.log(`${word[i]} is INCLUDED - case 2`)
-                                    }
+                                //    } else {
+                                //        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                //        UpdateLetter(word, i, "includedletter")
+                                //        lettercheck[word[i]] = 1
+                                //        console.log(`${word[i]} is INCLUDED - case 2`)
+                                //    }
                                 } else {
                                     document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                     UpdateLetter(word, i, "includedletter")
