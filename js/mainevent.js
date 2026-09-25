@@ -110,24 +110,24 @@ function mainevent(event, Row, Column, Completed, Failed) {
                         if (cword.includes(word[i])) {
                                 console.log(duplicates[word[i]])
                                 if (duplicates[word[i]] != 1) {
-                                   // if (Number.isInteger(lettercheck[word[i]])) {
-                                        if (lettercheck[word[i]] <= duplicates[word[i]]) {
-                                            console.log(`${lettercheck[word[i]]} - ` + `${duplicates[word[i]]}`)
+                                    if (Number.isInteger(lettercheck[word[i]])) {
+                                        console.log(`${lettercheck[word[i]]} - ` + `${duplicates[word[i]]}`)
+                                        if (lettercheck[word[i]] >= duplicates[word[i]]) {
                                             document.getElementById(`R${Row}C${i + 1}`).classList.add("incorrectletter")
                                             UpdateLetter(word, i, "incorrectletter")
                                             console.log(`${word[i]} Not in Word - Case 5`)
                                         } else {
-                                            lettercheck[word[i]] = lettercheck[word[i]] + 1
+                                            lettercheck[word[i]] += 1
                                             document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                             UpdateLetter(word, i, "includedletter")
                                             console.log(`${word[i]} is INCLUDED - case 1`)
                                         }
-                                //    } else {
-                                //        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
-                                //        UpdateLetter(word, i, "includedletter")
-                                //        lettercheck[word[i]] = 1
-                                //        console.log(`${word[i]} is INCLUDED - case 2`)
-                                //    }
+                                    } else {
+                                        document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
+                                        UpdateLetter(word, i, "includedletter")
+                                        lettercheck[word[i]] += 1
+                                        console.log(`${word[i]} is INCLUDED - case 2`)
+                                    }
                                 } else {
                                     document.getElementById(`R${Row}C${i + 1}`).classList.add("includedletter")
                                     UpdateLetter(word, i, "includedletter")
@@ -143,7 +143,7 @@ function mainevent(event, Row, Column, Completed, Failed) {
                     }
                 }
                 
-                console.log(lettercheck)
+                
                  if (Column == 5) {
                     if (document.getElementById(`R${Row}C5`).innerHTML != '') {
                         if (Row != 6) {
@@ -192,3 +192,4 @@ function mainevent(event, Row, Column, Completed, Failed) {
         }
         return [Row, Column, Completed, Failed]
         }
+
